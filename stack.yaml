@@ -6,6 +6,8 @@ packages:
 - location: ../elm-package
 - location: ../elm-repl
 
-extra-deps: []
+extra-deps:
+- cabal-helper-0.6.3.1
+
 flags: {}
 extra-package-dbs: []
