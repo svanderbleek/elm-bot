@@ -1,14 +1,19 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 module Main where
 
-import qualified System.IO.Silently as Sys
-import qualified Environment as Env
-import qualified Eval.Code as Elm
+import qualified ElmBot
+import qualified Network.Linklater as Slack
+import qualified Network.Wai.Handler.Warp as Warp
+import Data.Text (Text, pack, unpack)
+import Data.Maybe (fromMaybe)
+import Control.Monad (liftM)
 
 main :: IO ()
-main = eval "1" >>= print
+main = Warp.run 3333 $ Slack.slashSimple handler
 
-eval :: String -> IO String
-eval s = fst <$> Sys.capture (run s)
+handler :: Maybe Slack.Command -> IO Text
+handler c = liftM pack $ ElmBot.eval $ unpack $ text c
 
-run :: String -> IO ()
-run s = Env.run (Env.empty "elm-make" "node") (Elm.eval (Nothing, s))
+text :: Maybe Slack.Command -> Text
+text c = fromMaybe "" $ c >>= Slack._commandText

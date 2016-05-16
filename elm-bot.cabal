@@ -19,3 +19,6 @@ executable elm-bot
   build-depends:       base >= 4.2 && < 5
                      , elm-repl
                      , silently
+                     , linklater
+                     , warp
+                     , text

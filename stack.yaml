@@ -1,13 +1,10 @@
-resolver: lts-3.22
-
+flags: {}
+extra-package-dbs: []
 packages:
 - '.'
 - location: ../elm-compiler
 - location: ../elm-package
 - location: ../elm-repl
-
 extra-deps:
-- cabal-helper-0.6.3.1
-
-flags: {}
-extra-package-dbs: []
+- linklater-3.2.0.0
+resolver: lts-3.22
