@@ -16,6 +16,8 @@ executable elm-bot
   hs-source-dirs:      src
   main-is:             Main.hs
   default-language:    Haskell2010
+  other-modules:       ElmBot
+                     , Slash
   build-depends:       base >= 4.2 && < 5
                      , elm-repl
                      , silently
@@ -25,3 +27,4 @@ executable elm-bot
                      , wai
                      , wai-extra
                      , warp
+                     , aeson
