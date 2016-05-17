@@ -19,15 +19,9 @@ executable elm-bot
   build-depends:       base >= 4.2 && < 5
                      , elm-repl
                      , silently
-                     , linklater
-                     , warp
+                     , bytestring
                      , text
-                     , base-prelude
-                     , lens
-                     , aeson
-                     , containers
                      , http-types
                      , wai
-                     , wreq
-                     , bytestring
                      , wai-extra
+                     , warp
