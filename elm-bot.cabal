@@ -22,3 +22,12 @@ executable elm-bot
                      , linklater
                      , warp
                      , text
+                     , base-prelude
+                     , lens
+                     , aeson
+                     , containers
+                     , http-types
+                     , wai
+                     , wreq
+                     , bytestring
+                     , wai-extra
