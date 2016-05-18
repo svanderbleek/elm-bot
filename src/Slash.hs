@@ -47,7 +47,8 @@ app :: Handler -> Application
 app handler request respond =
   do 
     params <- parse request
-    response <- mkResponse handler (mkRequest params)
+    let request' = mkRequest params
+    response <- mkResponse handler request'
     respond $ responseLBS status200 [] (toLBS response)
 
 parse :: Request -> IO [Param]
