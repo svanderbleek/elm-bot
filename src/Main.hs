@@ -16,5 +16,6 @@ main =
 handler :: Command -> IO Response
 handler (Command text) =
   do
-    text' <- ElmBot.eval text
-    return $ Response text' InChannel
+    evaled <- ElmBot.eval text
+    let wrapped = "```\n" ++ evaled ++ "```"
+    return $ Response wrapped InChannel
