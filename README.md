@@ -8,9 +8,9 @@ A lambdabot style bot for Elm-Lang with Slack integration.
 
 ## Run
 
-To run on `localhost:3333`:
+To run on `localhost:port`:
 
-`stack exec elm-bot`
+`stack exec elm-bot -- port`
 
 ## API
 
@@ -40,4 +40,5 @@ git clone https://github.com/svanderbleek/elm-bot.git
 cd elm-bot
 stack setup
 stack build
+stack exec elm-bot -- 80 &
 ```

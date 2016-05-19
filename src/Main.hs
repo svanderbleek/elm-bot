@@ -3,16 +3,18 @@ module Main where
 import qualified ElmBot
 import qualified Network.Wai.Handler.Warp as Warp
 import qualified Slash
-import System.Environment as Env
+import Slash (Command(..), Response(..), ResponseType(..))
+import qualified System.Environment as Sys
 
 main :: IO ()
 main = 
   do
-    port <- getArgs
-    Warp.run (read . head $ port) (Slash.app handler)
+    args <- Sys.getArgs
+    let port = read . head $ args
+    Warp.run port (Slash.app handler)
 
-handler :: Slash.Command -> IO Slash.Response
-handler (Slash.Command text) =
+handler :: Command -> IO Response
+handler (Command text) =
   do
-    repl <- ElmBot.eval text
-    return $ Slash.Response repl Slash.InChannel
+    text' <- ElmBot.eval text
+    return $ Response text' InChannel
