@@ -3,9 +3,13 @@ module Main where
 import qualified ElmBot
 import qualified Network.Wai.Handler.Warp as Warp
 import qualified Slash
+import System.Environment as Env
 
 main :: IO ()
-main = Warp.run 3333 (Slash.app handler)
+main = 
+  do
+    port <- getArgs
+    Warp.run (read . head $ port) (Slash.app handler)
 
 handler :: Slash.Command -> IO Slash.Response
 handler (Slash.Command text) =
