@@ -2,7 +2,7 @@
 
 module Slash (app, Command(..), Response(..), ResponseType(..)) where
 
-import Network.HTTP.Types (status200)
+import Network.HTTP.Types (status200, ResponseHeaders)
 import Network.Wai (Application, Request, responseLBS)
 import Network.Wai.Parse (Param, parseRequestBody, lbsBackEnd)
 import Data.Maybe (fromMaybe)
@@ -49,7 +49,7 @@ app handler request respond =
     params <- parse request
     let request' = mkRequest params
     response <- mkResponse handler request'
-    respond $ responseLBS status200 [] (toLBS response)
+    respond $ responseLBS status200 headers (toLBS response)
 
 parse :: Request -> IO [Param]
 parse request = 
@@ -86,3 +86,7 @@ toLBS response@(Response text responseType) =
   case responseType of 
     SSLChecked -> LS.pack text
     _ -> encode response
+
+headers :: ResponseHeaders
+headers =
+  [("content-type", "application/json")]
