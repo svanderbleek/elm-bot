@@ -1,15 +1,19 @@
-flags: {}
-extra-package-dbs: []
+resolver: lts-3.22
+
 packages:
 - '.'
 - location:
-    git: git@github.com:svanderbleek/elm-compiler
+    git: https://github.com/svanderbleek/elm-compiler
     commit: 128c6b5caad64158f62b83dcf77ee296dc668aad
 - location:
-    git: git@github.com:svanderbleek/elm-package
+    git:  https://github.com/svanderbleek/elm-package
     commit: d6699c6a039002a99ba25b96109bfa4c8a77479e
 - location:
-    git: git@github.com:svanderbleek/elm-repl
+    git:  https://github.com/svanderbleek/elm-repl
     commit: 0f4cff4688ee797c5a5df7c62198bf7b1d5b96a9
+
 extra-deps: []
-resolver: lts-3.22
+
+flags: {}
+
+extra-package-dbs: []
