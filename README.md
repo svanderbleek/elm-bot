@@ -34,11 +34,12 @@ apt-get update
 apt-get install stack -y
 apt-get install libncurses5-dev -y
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo apt-get install -y nodejs
+apt-get install -y nodejs
 npm install -g elm
 git clone https://github.com/svanderbleek/elm-bot.git
 cd elm-bot
 stack setup
 stack build
-stack exec elm-bot -- 80 &
+cp elm-bot.conf /etc/init/
+service elm-bot start
 ```

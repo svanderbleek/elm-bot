@@ -1,0 +1,10 @@
+description "elm-bot"
+author "svanderbleek"
+
+start on filesystem or runlevel [2345]
+stop on shutdown
+
+script
+  cd ~/elm-bot
+  exec stack exec elm-bot -- 80
+end script

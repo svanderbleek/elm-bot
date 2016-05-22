@@ -12,7 +12,8 @@ packages:
     git:  https://github.com/svanderbleek/elm-repl
     commit: 0f4cff4688ee797c5a5df7c62198bf7b1d5b96a9
 
-extra-deps: []
+extra-deps:
+- cabal-helper-0.6.3.1
 
 flags: {}
 
