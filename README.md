@@ -43,4 +43,3 @@ stack build
 cp elm-bot.conf /etc/init/
 service elm-bot start
 ```
-make clode clmintae work or something
